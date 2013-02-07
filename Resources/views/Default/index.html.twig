@@ -1,1 +1,8 @@
-Hello {{ name }}!
+{% extends "AdticketElvisCoreBundle::layout.html.twig" %}{% block title "Elvis-Berechtigungssystem Demo" %}
+{% block content %}
+
+    <h1>Elvis-Berechtigungssystem Demo</h1>
+
+    <p>Um diese Seite anzuzeigen, muss der aktuelle Nutzer über das Recht <code>ELVISMODULE_PERMISSIONDEMO_VIEW</code> verfügen.</p>
+
+{% endblock %}
