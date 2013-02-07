@@ -1,16 +1,16 @@
 {
-    "name":"adticket/permission-demo-bundle",
+    "name":"adticket/elvis-permission-demo-bundle",
     "description":"Demo bundle for the elvis permission management system.",
     "type":"library",
-    "homepage":"https://github.com/adticket/PermissionDemoBundle",
+    "homepage":"https://github.com/adticket/ElvisPermissionDemoBundle",
     "require":{
         "php":">=5.3.3",
         "symfony/symfony":"2.1.*"
     },
-    "target-dir":"Adticket/PermissionDemoBundle",
+    "target-dir":"Adticket/Elvis/PermissionDemoBundle",
     "autoload":{
         "psr-0":{
-            "Adticket\\PermissionDemoBundle":""
+            "Adticket\\Elvis\\PermissionDemoBundle":""
         }
     }
 }
