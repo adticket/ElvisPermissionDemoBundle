@@ -4,7 +4,15 @@
            xsi:schemaLocation="http://symfony.com/schema/dic/services http://symfony.com/schema/dic/services/services-1.0.xsd">
     <services>
         <service id="adticket.elvis.permissiondemo.module" class="Adticket\Elvis\PermissionDemoBundle\ElvisModule">
+            <!-- Registriert dieses Bundle innerhalb von Elvis -->
             <tag name="adticket.core.module"/>
+        </service>
+        <service id="adticket.elvis.permissiondemo.menu.main" class="Adticket\MenuBundle\Item">
+            <!-- Registriert dieses Bundle im Hauptmenü -->
+            <tag name="adticket.menu.item"/>
+            <argument>permissiondemo_index</argument>
+            <argument>Berechtigungen (Demo)</argument>
+            <argument>99</argument>
         </service>
     </services>
 </container>
