@@ -5,7 +5,8 @@
     "homepage":"https://github.com/adticket/ElvisPermissionDemoBundle",
     "require":{
         "php":">=5.3.3",
-        "symfony/symfony":"2.1.*"
+        "symfony/symfony":"2.1.*",
+        "adticket/tab-bundle":"dev-master"
     },
     "target-dir":"Adticket/Elvis/PermissionDemoBundle",
     "autoload":{

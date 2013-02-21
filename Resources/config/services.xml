@@ -7,12 +7,15 @@
             <!-- Registriert dieses Bundle innerhalb von Elvis -->
             <tag name="adticket.core.module"/>
         </service>
-        <service id="adticket.elvis.permissiondemo.menu.main" class="Adticket\MenuBundle\Item">
+        <service id="adticket.elvis.permissiondemo.menu.main" class="Adticket\Elvis\CoreBundle\Modules\MenuItem">
             <!-- Registriert dieses Bundle im Hauptmenü -->
             <tag name="adticket.menu.item"/>
             <argument>permissiondemo_index</argument>
             <argument>Berechtigungen (Demo)</argument>
             <argument>99</argument>
+            <argument>null</argument>
+            <argument>null</argument>
+            <argument type="service" id="adticket.elvis.permissiondemo.module" />
         </service>
     </services>
 </container>

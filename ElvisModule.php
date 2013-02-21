@@ -73,7 +73,7 @@ class ElvisModule implements \Adticket\Elvis\CoreBundle\Modules\Module
      */
     function getDependencies()
     {
-        return array();
+        return array('helloworld');
     }
 
     /**
@@ -84,7 +84,12 @@ class ElvisModule implements \Adticket\Elvis\CoreBundle\Modules\Module
     function getPermissions()
     {
         return array(
-            ModulePermission::factory($this, ModulePermission::PERMISSION_VIEW)
+            ModulePermission::factory($this, ModulePermission::PERMISSION_VIEW),
+            ModulePermission::factory($this, ModulePermission::PERMISSION_EDIT),
+            ModulePermission::factory($this, ModulePermission::PERMISSION_CREATE),
+            ModulePermission::factory($this, ModulePermission::PERMISSION_DELETE),
+            ModulePermission::factory($this, ModulePermission::PERMISSION_UNDELETE),
+            ModulePermission::factory($this, ModulePermission::PERMISSION_OPERATOR),
         );
     }
 }
