@@ -4,6 +4,52 @@
 
     {% include "AdticketElvisPermissionDemoBundle:Default:nav.html.twig" %}
 
-    <p>Um diese Seite anzuzeigen, muss der aktuelle Nutzer über das Recht <code>ELVISMODULE_PERMISSIONDEMO_VIEW</code> verfügen.</p>
+    <p>Um diese Seite anzuzeigen, muss der aktuelle Nutzer über das Recht <code>ELVISMODULE_PERMISSIONDEMO_VIEW</code>
+        verfügen.</p>
+
+    <h2>
+        Twig </h2>
+
+    <p>
+        Innerhalb von Twig-Templates kann die Funktion <code>has_elvis_permission(permission)</code> verwendet werden.
+    </p>
+
+    <h3>Code-Beispiel</h3>
+
+    <blockquote><code>
+        {% verbatim %}{% if has_elvis_permission("ELVISMODULE_PERMISSIONDEMO_VIEW") %}…{% endif %}{% endverbatim %}
+    </code></blockquote>
+
+    <h3>Live-Beispiele</h3>
+
+    {% if has_elvis_permission("ELVISMODULE_PERMISSIONDEMO_VIEW") %}
+        <p>Dieser Absatz wird nur gerendert, wenn der aktuelle Nutzer über das Recht <code>ELVISMODULE_PERMISSIONDEMO_VIEW</code>
+            verfügt.</p>
+    {% endif %}
+
+    {% if has_elvis_permission("ELVISMODULE_PERMISSIONDEMO_EDIT") %}
+        <p>Dieser Absatz wird nur gerendert, wenn der aktuelle Nutzer über das Recht <code>ELVISMODULE_PERMISSIONDEMO_EDIT</code>
+            verfügt.</p>
+    {% endif %}
+
+    {% if has_elvis_permission("ELVISMODULE_PERMISSIONDEMO_CREATE") %}
+        <p>Dieser Absatz wird nur gerendert, wenn der aktuelle Nutzer über das Recht <code>ELVISMODULE_PERMISSIONDEMO_CREATE</code>
+            verfügt.</p>
+    {% endif %}
+
+    {% if has_elvis_permission("ELVISMODULE_PERMISSIONDEMO_DELETE") %}
+        <p>Dieser Absatz wird nur gerendert, wenn der aktuelle Nutzer über das Recht <code>ELVISMODULE_PERMISSIONDEMO_DELETE</code>
+            verfügt.</p>
+    {% endif %}
+
+    {% if has_elvis_permission("ELVISMODULE_PERMISSIONDEMO_UNDELETE") %}
+        <p>Dieser Absatz wird nur gerendert, wenn der aktuelle Nutzer über das Recht <code>ELVISMODULE_PERMISSIONDEMO_UNDELETE</code>
+            verfügt.</p>
+    {% endif %}
+
+    {% if has_elvis_permission("ELVISMODULE_PERMISSIONDEMO_OPERATOR") %}
+        <p>Dieser Absatz wird nur gerendert, wenn der aktuelle Nutzer über das Recht <code>ELVISMODULE_PERMISSIONDEMO_OPERATOR</code>
+            verfügt.</p>
+    {% endif %}
 
 {% endblock %}

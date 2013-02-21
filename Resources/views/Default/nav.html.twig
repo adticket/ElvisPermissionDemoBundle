@@ -1,10 +1,10 @@
 <h1>Elvis-Berechtigungssystem Demo</h1>
 
 {{ adt_tabs_start() }}
-{{ adt_tab('permissiondemo_index', {}, 'VIEW') }}
-{{ adt_tab('permissiondemo_edit', {}, 'EDIT') }}
-{{ adt_tab('permissiondemo_create', {}, 'CREATE') }}
-{{ adt_tab('permissiondemo_delete', {}, 'DELETE') }}
-{{ adt_tab('permissiondemo_undelete', {}, 'UNDELETE') }}
-{{ adt_tab('permissiondemo_operator', {}, 'OPERATOR') }}
+{% if has_elvis_permission("ELVISMODULE_PERMISSIONDEMO_VIEW") %}{{ adt_tab('permissiondemo_index', {}, 'VIEW') }}{% endif %}
+{% if has_elvis_permission("ELVISMODULE_PERMISSIONDEMO_EDIT") %}{{ adt_tab('permissiondemo_edit', {}, 'EDIT') }}{% endif %}
+{% if has_elvis_permission("ELVISMODULE_PERMISSIONDEMO_CREATE") %}{{ adt_tab('permissiondemo_create', {}, 'CREATE') }}{% endif %}
+{% if has_elvis_permission("ELVISMODULE_PERMISSIONDEMO_DELETE") %}{{ adt_tab('permissiondemo_delete', {}, 'DELETE') }}{% endif %}
+{% if has_elvis_permission("ELVISMODULE_PERMISSIONDEMO_UNDELETE") %}{{ adt_tab('permissiondemo_undelete', {}, 'UNDELETE') }}{% endif %}
+{% if has_elvis_permission("ELVISMODULE_PERMISSIONDEMO_OPERATOR") %}{{ adt_tab('permissiondemo_operator', {}, 'OPERATOR') }}{% endif %}
 {{ adt_tabs_end() }}
