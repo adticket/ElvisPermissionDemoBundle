@@ -90,6 +90,7 @@ class ElvisModule implements \Adticket\Elvis\CoreBundle\Modules\Module
             ModulePermission::factory($this, ModulePermission::PERMISSION_DELETE),
             ModulePermission::factory($this, ModulePermission::PERMISSION_UNDELETE),
             ModulePermission::factory($this, ModulePermission::PERMISSION_OPERATOR),
+            ModulePermission::factory($this, ModulePermission::PERMISSION_OPERATOR, 'article'),
         );
     }
 }

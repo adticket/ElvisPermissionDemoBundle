@@ -17,5 +17,15 @@
             <argument>null</argument>
             <argument type="service" id="adticket.elvis.permissiondemo.module" />
         </service>
+        <service id="adticket.elvis.permissiondemo.form.eventlistener.articlesubscriber"
+                 class="Adticket\Elvis\PermissionDemoBundle\Form\EventListener\ArticleTypeSubscriber">
+            <argument type="service" id="form.factory"/>
+            <argument type="service" id="adticket.elvis.core.modules.accesschecker" />
+            <argument type="service" id="security.context" />
+        </service>
+        <service id="adticket.elvis.permissiondemo.form.article" class="Adticket\Elvis\PermissionDemoBundle\Form\ArticleType">
+            <tag name="form.type" alias="adticket_elvis_permissiondemo_article"/>
+            <argument type="service" id="adticket.elvis.permissiondemo.form.eventlistener.articlesubscriber"/>
+        </service>
     </services>
 </container>

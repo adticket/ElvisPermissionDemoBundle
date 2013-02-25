@@ -2,6 +2,7 @@
 
 namespace Adticket\Elvis\PermissionDemoBundle\Controller;
 
+use Adticket\Elvis\PermissionDemoBundle\Model\Article;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
@@ -34,7 +35,13 @@ class DefaultController extends Controller
      */
     public function editAction()
     {
-        return array();
+        $article = new Article();
+        /** @var $form \Symfony\Component\Form\FormInterface */
+        $form = $this->container->get('form.factory')->create('adticket_elvis_permissiondemo_article', $article);
+
+        return array(
+            'form' => $form->createView(),
+        );
     }
 
     /**

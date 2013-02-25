@@ -6,4 +6,10 @@
 
     <p>Um diese Seite anzuzeigen, muss der aktuelle Nutzer über das Recht <code>ELVISMODULE_PERMISSIONDEMO_EDIT</code> verfügen.</p>
 
+    <h2>Formular-Demo</h2>
+
+    <form action="{{ app.request.get('REQUEST_URI') }}" method="post" {{ form_enctype(form) }}>
+        {{ form_widget(form) }}
+    </form>
+
 {% endblock %}
