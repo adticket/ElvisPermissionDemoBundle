@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+
+    Konfigurationsdatei für Phing
+
+    @author Markus Tacker <m@coderbyheart.de>
+
+-->
+<project name="AdticketElvisHelloWorldBundle" default="ci">
+
+    <property name="reportsdir" value="${project.basedir}/reports"/>
+    <property name="docsdir" value="${project.basedir}/docs"/>
+
+    <target name="clean">
+        <delete dir="${reportsdir}"/>
+        <delete dir="${docsdir}"/>
+    </target>
+
+    <target name="prepare">
+        <mkdir dir="${reportsdir}"/>
+        <mkdir dir="${docsdir}"/>
+    </target>
+
+    <target name="doc">
+        <echo msg="Running DocBlox"/>
+        <exec command="phpdoc > ${docsdir}/errors.log" dir="./" checkreturn="TRUE"
+              passthru="TRUE"/>
+    </target>
+
+    <fileset dir="${project.basedir}" id="srcfiles">
+        <include name="**/.php"/>
+    </fileset>
+
+    <target name="pmd" depends="prepare">
+        <echo msg="Running PHP mess detection ..."/>
+        <phpmd>
+            <fileset refid="srcfiles"/>
+            <formatter type="xml" outfile="${reportsdir}/pmd.xml"/>
+            <formatter type="html" outfile="${reportsdir}/pmd.html"/>
+        </phpmd>
+    </target>
+
+    <target name="cpd" depends="prepare">
+        <echo msg="Running PHP copy&amp;paste detection"/>
+        <phpcpd>
+            <fileset refid="srcfiles"/>
+            <formatter type="pmd" outfile="${reportsdir}/pmd-cpd.xml"/>
+        </phpcpd>
+    </target>
+
+    <target name="cs" depends="prepare">
+        <echo msg="Running PHP code sniffer"/>
+        <phpcodesniffer
+                standard="PEAR"
+                showWarnings="true">
+            <fileset refid="srcfiles"/>
+            <formatter type="checkstyle" outfile="${reportsdir}/checkstyle.xml"/>
+        </phpcodesniffer>
+    </target>
+
+    <target name="ci" depends="prepare,doc,pmd,cpd,cs"/>
+</project>

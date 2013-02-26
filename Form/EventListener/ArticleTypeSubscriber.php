@@ -1,12 +1,13 @@
 <?php
 
 //  +--------------------------------------------------+
-//  | Copyright (c) Ad ticket GmbH                     |
+//  | Copyright (c) AD ticket GmbH                     |
 //  | All rights reserved.                             |
 //  +--------------------------------------------------+
-//  | This source code is protected by international   |
-//  | copyright law and may not be distributed without |
-//  | written permission by                            |
+//  | This source code is licensed under the           |
+//  | GNU GENERAL PUBLIC LICENSE Version 3.            |
+//  | See LICENSE for more information.                |
+//  +--------------------------------------------------+
 //  |   AD ticket GmbH                                 |
 //  |   Kaiserstraße 69                                |
 //  |   D-60329 Frankfurt am Main                      |
@@ -18,6 +19,8 @@
 //  +--------------------------------------------------+
 
 /**
+ * Contains ArticleTypeSubscriber
+ *
  * @author Markus Tacker <m@coderbyheart.de>
  * @package Adticket:Elvis:PermissionDemoBundle
  * @category Forms
@@ -34,27 +37,42 @@ use Symfony\Component\Security\Core\SecurityContextInterface;
 use JMS\SecurityExtraBundle\Annotation\Secure;
 
 /**
- * Modifiziert das Formular ArticleType anhand der aktuell verfügbaren Rechte
+ * Modifies the {@link ArticleType} according to the elvis permission granted to the user
  *
  * @author Markus Tacker <m@coderbyheart.de>
+ * @package Adticket:Elvis:PermissionDemoBundle
+ * @category Forms
  */
 class ArticleTypeSubscriber implements EventSubscriberInterface
 {
     /**
+     * Reference to the factory used to create new form elements
+     *
      * @var \Symfony\Component\Form\FormFactoryInterface
      */
     private $factory;
 
     /**
+     * Reference to the elvis access checker service
+     *
      * @var \Adticket\Elvis\CoreBundle\Modules\AccessChecker
      */
     private $accessChecker;
 
     /**
+     * Reference to symfony2's security context
+     *
      * @var \Symfony\Component\Security\Core\SecurityContextInterface
      */
     private $securityContext;
 
+    /**
+     * Creates a new subscriber passing the factory used to create new form elements, the elvis access checker service and symfony2's security context
+     *
+     * @param \Symfony\Component\Form\FormFactoryInterface $factory
+     * @param \Adticket\Elvis\CoreBundle\Modules\AccessChecker $accessChecker
+     * @param \Symfony\Component\Security\Core\SecurityContextInterface $securityContext
+     */
     public function __construct(FormFactoryInterface $factory, AccessChecker $accessChecker, SecurityContextInterface $securityContext)
     {
         $this->factory = $factory;
@@ -62,12 +80,19 @@ class ArticleTypeSubscriber implements EventSubscriberInterface
         $this->securityContext = $securityContext;
     }
 
+    /**
+     * Tells symfony2 which events this subscriber acts upon
+     *
+     * @return array
+     */
     public static function getSubscribedEvents()
     {
         return array(FormEvents::PRE_SET_DATA => 'preSetData');
     }
 
     /**
+     * Handle the event
+     *
      * @param \Symfony\Component\Form\FormEvent $event
      */
     public function preSetData(FormEvent $event)

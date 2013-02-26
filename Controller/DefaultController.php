@@ -1,5 +1,31 @@
 <?php
 
+//  +--------------------------------------------------+
+//  | Copyright (c) AD ticket GmbH                     |
+//  | All rights reserved.                             |
+//  +--------------------------------------------------+
+//  | This source code is licensed under the           |
+//  | GNU GENERAL PUBLIC LICENSE Version 3.            |
+//  | See LICENSE for more information.                |
+//  +--------------------------------------------------+
+//  |   AD ticket GmbH                                 |
+//  |   Kaiserstraße 69                                |
+//  |   D-60329 Frankfurt am Main                      |
+//  |                                                  |
+//  |   phone: +49 (0)69 407 662 0                     |
+//  |   fax:   +49 (0)69 407 662 50                    |
+//  |   mail:  info@adticket.de                        |
+//  |   web:   www.ADticket.de                         |
+//  +--------------------------------------------------+
+
+/**
+ * Contains DefaultController
+ *
+ * @author Markus Tacker <m@coderbyheart.de>
+ * @package Adticket:Elvis:PermissionDemoBundle
+ * @category Symfony2
+ */
+
 namespace Adticket\Elvis\PermissionDemoBundle\Controller;
 
 use Adticket\Elvis\PermissionDemoBundle\Model\Article;
@@ -8,6 +34,13 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 use JMS\SecurityExtraBundle\Annotation\Secure;
 
+/**
+ * Controller used to demonstrate the various elvis permission a module may provide
+ *
+ * @author Markus Tacker <m@coderbyheart.de>
+ * @package Adticket:Elvis:PermissionDemoBundle
+ * @category Symfony2
+ */
 class DefaultController extends Controller
 {
 
@@ -19,6 +52,8 @@ class DefaultController extends Controller
     const PERMISSION_OPERATOR = 'OPERATOR';
 
     /**
+     * Display the view view, needs the ELVISMODULE_PERMISSIONDEMO_VIEW permission.
+     *
      * @Route("/", name="permissiondemo_index")
      * @Template()
      * @Secure("ELVISMODULE_PERMISSIONDEMO_VIEW")
@@ -29,6 +64,10 @@ class DefaultController extends Controller
     }
 
     /**
+     * Display the edit view, needs the ELVISMODULE_PERMISSIONDEMO_EDIT permission.
+     *
+     * This view also contains a form which is modified accordings to the users permissions.
+     *
      * @Route("/edit", name="permissiondemo_edit")
      * @Template()
      * @Secure("ELVISMODULE_PERMISSIONDEMO_EDIT")
@@ -45,6 +84,8 @@ class DefaultController extends Controller
     }
 
     /**
+     * Display the create view, needs the ELVISMODULE_PERMISSIONDEMO_CREATE permission.
+     *
      * @Route("/create", name="permissiondemo_create")
      * @Template()
      * @Secure("ELVISMODULE_PERMISSIONDEMO_CREATE")
@@ -55,6 +96,8 @@ class DefaultController extends Controller
     }
 
     /**
+     * Display the delete view, needs the ELVISMODULE_PERMISSIONDEMO_DELETE permission.
+     *
      * @Route("/delete", name="permissiondemo_delete")
      * @Template()
      * @Secure("ELVISMODULE_PERMISSIONDEMO_DELETE")
@@ -65,6 +108,8 @@ class DefaultController extends Controller
     }
 
     /**
+     * Display the undelete view, needs the ELVISMODULE_PERMISSIONDEMO_UNDELETE permission.
+     *
      * @Route("/undelete", name="permissiondemo_undelete")
      * @Template()
      * @Secure("ELVISMODULE_PERMISSIONDEMO_UNDELETE")
@@ -75,6 +120,8 @@ class DefaultController extends Controller
     }
 
     /**
+     * Display the operator view, needs the ELVISMODULE_PERMISSIONDEMO_OPERATOR permission.
+     *
      * @Route("/operator", name="permissiondemo_operator")
      * @Template()
      * @Secure("ELVISMODULE_PERMISSIONDEMO_OPERATOR")

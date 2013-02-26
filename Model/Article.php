@@ -1,11 +1,13 @@
 <?php
+
 //  +--------------------------------------------------+
-//  | Copyright (c) Ad ticket GmbH                     |
+//  | Copyright (c) AD ticket GmbH                     |
 //  | All rights reserved.                             |
 //  +--------------------------------------------------+
-//  | This source code is protected by international   |
-//  | copyright law and may not be distributed without |
-//  | written permission by                            |
+//  | This source code is licensed under the           |
+//  | GNU GENERAL PUBLIC LICENSE Version 3.            |
+//  | See LICENSE for more information.                |
+//  +--------------------------------------------------+
 //  |   AD ticket GmbH                                 |
 //  |   Kaiserstraße 69                                |
 //  |   D-60329 Frankfurt am Main                      |
@@ -17,6 +19,8 @@
 //  +--------------------------------------------------+
 
 /**
+ * Contains Article
+ *
  * @author Markus Tacker <m@coderbyheart.de>
  * @package Adticket:Elvis:PermissionDemoBundle
  * @category Models

@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!--
+
+    Konfigurationsdatei für PhpDoc
+
+    Diese Datei wird automatisch durch ausführen von
+    $ phpdoc
+    eingelesen.
+
+    Individuelle Änderungen sollen als docblox.xml gespeichert werden,
+    ist die Datei docblox.xml vorhanden, wird sie automatisch statt
+    dieser verwendet.
+
+    http://www.phpdoc.org/docs/latest/for-users/configuration.html
+
+    @author Markus Tacker <m@coderbyheart.de>
+
+-->
+<docblox>
+    <parser>
+        <target>docs</target>
+    </parser>
+    <transformer>
+        <target>docs</target>
+    </transformer>
+    <files>
+        <directory>./</directory>
+    </files>
+</docblox>
